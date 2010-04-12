@@ -2,222 +2,310 @@ countries = {
     {
         name = "Alaska",
         center = {x=141 , y=80 },
-        neighbours = {2,3,32}
+        neighbours = {2,3,32},
+        image,
+        draw = {x=118,y=50}
     },
     {
         name = "Northwest Territory",
         center = {x=203 , y=80 },
-        neighbours = {1,3,4,6}
+        neighbours = {1,3,4,6},
+        image,
+        draw = {x=172,y=39}
     },
     {
         name = "Alberta",
         center = {x=205 , y=124 },
-        neighbours = {1,2,4,7}
+        neighbours = {1,2,4,7},
+        image,
+        draw = {x=179,y=90}
     },
     {
         name = "Ontario",
         center = {x=252 , y=130 },
-        neighbours = {2,3,7,8,5,6}
+        neighbours = {2,3,7,8,5,6},
+        image,
+        draw = {x=239,y=92}
     },
     {
         name = "Quebec",
         center = {x= 300, y=132 },
-        neighbours = {4,8,6}
+        neighbours = {4,8,6},
+        image,
+        draw = {x=286,y=89}
     },
     {
         name = "Greenland",
         center = {x=350 , y=60 },
-        neighbours = {2,4,5,15}
+        neighbours = {2,4,5,15},
+        image,
+        draw = {x=306,y=12}
     },
     {
         name = "Western United States",
         center = {x=205 , y=180 },
-        neighbours = {3,4,8,9}
+        neighbours = {3,4,8,9},
+        image,
+        draw = {x=183,y=141}
     },
     {
         name = "Eastern United States",
         center = {x=255 , y=195 },
-        neighbours = {9,7,4,5}
+        neighbours = {9,7,4,5},
+        image,
+        draw = {x=227,y=141}
     },
     {
         name = "Central America",
         center = {x=207 , y=225 },
-        neighbours = {7,8,10}
+        neighbours = {7,8,10},
+        image,
+        draw = {x=190,y=200}
     },
     {
         name = "Venezuela",
         center = {x=267 , y=286 },
-        neighbours = {9,11,12}
+        neighbours = {9,11,12},
+        image,
+        draw = {x=244,y=260}
     },
     {
         name = "Peru",
         center = {x=242 , y=323 },
-        neighbours = {10,12,13}
+        neighbours = {10,12,13},
+        image,
+        draw = {x=239,y=294}
     },
     {
         name = "Brazil",
         center = {x=322 , y=336 },
-        neighbours = {10,11,13,14,23}
+        neighbours = {10,11,13,14,23},
+        image,
+        draw = {x=257,y=284}
     },
     {
         name = "Bolivia",
         center = {x=285 , y=355 },
-        neighbours = {11,12,14}
+        neighbours = {11,12,14},
+        image,
+        draw = {x=252,y=325}
     },
     {
         name = "Argentina",
         center = {x=280 , y=415 },
-        neighbours = {13,12}
+        neighbours = {13,12},
+        image,
+        draw = {x=267,y=352}
     },
     {
         name = "Iceland",
         center = {x=460 , y=107 },
-        neighbours = {6,16,17}
+        neighbours = {6,16,17},
+        image,
+        draw = {x=446,y=86}
     },
     {
         name = "Scandinavia",
         center = {x=512 , y=108 },
-        neighbours = {15,17,18,19}
+        neighbours = {15,17,18,19},
+        image,
+        draw = {x=495,y=62}
     },
     {
         name = "Great Britain",
         center = {x=453 , y=173 },
-        neighbours = {15,16,18,20}
+        neighbours = {15,16,18,20},
+        image,
+        draw = {x=427,y=122}
     },
     {
         name = "Northern Europe",
         center = {x=510 , y=175 },
-        neighbours = {16,17,19,20,21}
+        neighbours = {16,17,19,20,21},
+        image,
+        draw = {x=486,y=131}
     },
     {
         name = "Ukraine",
         center = {x=580 , y=140 },
-        neighbours = {29,34,38,16,18,21}
+        neighbours = {29,34,38,16,18,21},
+        image,
+        draw = {x=540,y=62}
     },
     {
         name = "France",
         center = {x=470 , y=210 },
-        neighbours = {17,18,21,22}
+        neighbours = {17,18,21,22},
+        image,
+        draw = {x=544,y=179}
     },
     {
         name = "Southern Europe",
         center = {x=520 , y=215 },
-        neighbours = {18,19,20,38,23}
+        neighbours = {18,19,20,38,23,24},
+        image,
+        draw = {x=492,y=179}
     },
     {
         name = "Spain",
         center = {x=455 , y=245 },
-        neighbours = {20,23}
+        neighbours = {20,23},
+        image,
+        draw = {x=440,y=215}
     },
     {
         name = "North Africa",
         center = {x=477 , y=320 },
-        neighbours = {12,21,22,24,25,26}
+        neighbours = {12,21,22,24,25,26},
+        image,
+        draw = {x=449,y=249}
     },
     {
         name = "Egypt",
         center = {x=540 , y=292 },
-        neighbours = {23,25,38}
+        neighbours = {23,25,38},
+        image,
+        draw = {x=513,y=265}
     },
     {
         name = "East Africa",
         center = {x=575 , y=340 },
-        neighbours = {23,24,26,27,28}
+        neighbours = {23,24,26,27,28},
+        image,
+        draw = {x=550,y=301}
     },
     {
         name = "Congo",
         center = {x=545 , y=380 },
-        neighbours = {23,25,27}
+        neighbours = {23,25,27},
+        image,
+        draw = {x=514,y=355}
     },
     {
         name = "South Africa",
         center = {x= 545, y=445 },
-        neighbours = {25,26,28}
+        neighbours = {25,26,28},
+        image,
+        draw = {x=522,y=384}
     },
     {
         name = "Madagascar",
         center = {x=613 , y=451 },
-        neighbours = {25,27}
+        neighbours = {25,27},
+        image,
+        draw = {x=605,y=407}
     },
     {
         name = "Ural",
         center = {x=650 , y=127 },
-        neighbours = {19,34,35,30}
+        neighbours = {19,34,35,30},
+        image,
+        draw = {x=637,y=43}
     },
     {
         name = "Siberia",
         center = {x=688 , y=66 },
-        neighbours = {29,31,33,35,36}
+        neighbours = {29,31,33,35,36},
+        image,
+        draw = {x=652,y=21}
     },
     {
         name = "Yakutsk",
         center = {x=745 , y=75 },
-        neighbours = {30,32,33}
+        neighbours = {30,32,33},
+        image,
+        draw = {x=722,y=33}
     },
     {
         name = "Kamchatka",
         center = {x=800 , y=83 },
-        neighbours = {31,33,36,1, 37}
+        neighbours = {31,33,36,1, 37},
+        image,
+        draw = {x=762,y=42}
     },
     {
         name = "Irkutsk",
         center = {x=735 , y=144 },
-        neighbours = {30,31,32,36}
+        neighbours = {30,31,32,36},
+        image,
+        draw = {x=710,y=88}
     },
     {
         name = "Afghanistan",
         center = {x=640 , y=200 },
-        neighbours = {19,29,35,38,39}
+        neighbours = {19,29,35,38,39},
+        image,
+        draw = {x=607,y=142}
     },
     {
         name = "China",
         center = {x=727 , y=233 },
-        neighbours = {29,30,33,34,36,39,40}
+        neighbours = {29,30,33,34,36,39,40},
+        image,
+        draw = {x=676,y=157}
     },
     {
         name = "Mongolia",
         center = {x=745 , y=185 },
-        neighbours = {37,30,32,33,35}
+        neighbours = {37,30,32,33,35},
+        image,
+        draw = {x=717,y=132}
     },
     {
         name = "Japan",
         center = {x=822 , y=190 },
-        neighbours = {32,36}
+        neighbours = {32,36},
+        image,
+        draw = {x=809,y=132}
     },
     {
         name = "Middle East",
         center = {x=594 , y=262 },
-        neighbours = {19,21,24,25,34,39}
+        neighbours = {19,21,24,25,34,39},
+        image,
+        draw = {x=548,y=218}
     },
     {
         name = "India",
         center = {x=684 , y=270 },
-        neighbours = {34,35,38,40}
+        neighbours = {34,35,38,40},
+        image,
+        draw = {x=650,y=210}
     },
     {
         name = "Siam",
         center = {x=744 , y=291 },
-        neighbours = {35,39,41}
+        neighbours = {35,39,41},
+        image,
+        draw = {x=724,y=250}
     },
     {
         name = "Indonesia",
         center = {x=769 , y=371 },
-        neighbours = {40,42,43}
+        neighbours = {40,42,43},
+        image,
+        draw = {x=733,y=332}
     },
     {
         name = "New Guinea",
         center = {x=831 , y=353 },
-        neighbours = {40,43,44}
+        neighbours = {40,43,44},
+        image,
+        draw = {x=809,y=323}
     },
     {
         name = "Western Australia",
         center = {x=790 , y= 445 },
-        neighbours = {41,42,44}
+        neighbours = {41,42,44},
+        image,
+        draw = {x=775,y=388}
     },
     {
         name = "Eastern Australia",
         center = {x=840 , y=422 },
-        neighbours = {42,43}
+        neighbours = {42,43},
+        image,
+        draw = {x=822,y=376}
     }
 }
 
@@ -272,4 +360,5 @@ local body = love.physics.newBody(world, 0,0,0,0)
 
 for i=1, #polygons do
     shapes[i] = love.physics.newPolygonShape(body, unpack(polygons[i]))
+    countries[i].image = love.graphics.newImage("gfx/countries/"..i..".png")
 end

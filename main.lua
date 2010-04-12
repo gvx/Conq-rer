@@ -1,9 +1,14 @@
+require("padding.lua")
 function love.load()
     love.graphics.setBackgroundColor(188, 213, 232)
     love.graphics.setLine(2, "smooth")
+    bg = love.graphics.newImage("gfx/bg.png")
     map = love.graphics.newImage("gfx/map.png")
+    compass = love.graphics.newImage("gfx/compass.png")
+    arrows = love.graphics.newImage("gfx/arrows.png")
     world = love.physics.newWorld(1024, 640)
     hovering = "nothing"
+    selected = 0
     require("countries.lua")
 end
 
@@ -31,9 +36,12 @@ end
 function love.draw()
     love.graphics.setColorMode("replace")
     love.graphics.setColor(50,50,50, 200)
-    love.graphics.draw(map, 117,0)
+    love.graphics.draw(bg, 0,0)
+    love.graphics.draw(map, 0,0)
+    love.graphics.draw(compass, 651,372)
+    love.graphics.draw(arrows, 0,0)
     
-    for i=1, #countries do
+    --[[for i=1, #countries do
         local x1,y1 = countries[i].center.x, countries[i].center.y
         for n,v in ipairs(countries[i].neighbours) do
             local x2, y2 = countries[v].center.x, countries[v].center.y
@@ -44,10 +52,15 @@ function love.draw()
             end
             love.graphics.line(x1,y1,x2,y2)
         end
+    end]]--
+    
+    love.graphics.setColorMode("modulate")
+    love.graphics.setColor(50,50,50, 100)
+    if selected ~= 0 then
+        love.graphics.draw(countries[selected].image, countries[selected].draw.x, countries[selected].draw.y)
     end
     
     love.graphics.setColor(50,50,50)
-    love.graphics.setColorMode("modulate")
     love.graphics.print("Mouse X/Y: "..love.mouse.getX().."/"..love.mouse.getY(), 10, 15)
     if hovering ~= "nothing" then
         love.graphics.print("Hovering over "..countries[hovering].name.." ("..hovering..")", 10, 30)
@@ -66,6 +79,17 @@ function love.keypressed(key, uni)
         local _success = love.graphics.toggleFullscreen()
         if not _success then
             print("Couldn't toggle fullscreen. Sorry!")
+        end
+    end
+end
+
+function love.mousepressed(x,y, button)
+    if button == "l" then
+        selected = 0
+        for i=1, #countries do
+            if shapes[i]:testPoint(x, y) then
+                selected = i
+            end
         end
     end
 end
