@@ -58,6 +58,11 @@ function love.draw()
     love.graphics.setColor(50,50,50, 100)
     if selected ~= 0 then
         love.graphics.draw(countries[selected].image, countries[selected].draw.x, countries[selected].draw.y)
+        love.graphics.setColor(230,230,230, 100)
+        for i=1, #countries[selected].neighbours do
+            local neighbour = countries[countries[selected].neighbours[i]]
+            love.graphics.draw(neighbour.image, neighbour.draw.x, neighbour.draw.y)
+        end
     end
     
     love.graphics.setColor(50,50,50)

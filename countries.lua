@@ -137,7 +137,7 @@ countries = {
         center = {x=470 , y=210 },
         neighbours = {17,18,21,22},
         image,
-        draw = {x=544,y=179}
+        draw = {x=454,y=179}
     },
     {
         name = "Southern Europe",
@@ -179,7 +179,7 @@ countries = {
         center = {x=545 , y=380 },
         neighbours = {23,25,27},
         image,
-        draw = {x=514,y=355}
+        draw = {x=514,y=335}
     },
     {
         name = "South Africa",
@@ -289,7 +289,7 @@ countries = {
     {
         name = "New Guinea",
         center = {x=831 , y=353 },
-        neighbours = {40,43,44},
+        neighbours = {41,43,44},
         image,
         draw = {x=809,y=323}
     },
