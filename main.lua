@@ -44,7 +44,7 @@ function love.load()
     require("players.lua")
     require("utils.lua")
     divide()
-    addMsg("Your troops in Afghanistan have been defeated by Stein the Spineless")
+    addMsg("Press the left button to select a region. Right button to see region information.")
 end
 
 function love.update(dt)
@@ -88,15 +88,15 @@ function love.draw()
         end
     end
     
+    love.graphics.setColor(30,30,30)
     for i,v in ipairs(countries) do
         if v.troops > 0 then
-            love.graphics.setColorMode("modulate")
             love.graphics.print(v.troops, v.center.x, v.center.y)
-            love.graphics.setColorMode("replace")
+            
         end
     end
-    if selected ~= 0 then
-        drawCountryInfo(selected)
+    if love.mouse.isDown("r") and hovering ~= "nothing" then
+        drawCountryInfo(hovering)
     end
     
     drawMsgs()

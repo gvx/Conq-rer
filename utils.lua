@@ -6,7 +6,7 @@ end
 function drawMsgs()
     if #msgs > 0 then
         if not msgview then
-            love.graphics.setColor(30,30,30, 200)
+            love.graphics.setColor(0,0,0, 175)
             love.graphics.rectangle("fill", 0,0, 1024,30 )
             local h = fonts.normal.normal:getHeight(msgs[#msgs].text)/2
             love.graphics.setColor(230,230,230, 255)
@@ -14,7 +14,7 @@ function drawMsgs()
             love.graphics.printf(msgs[#msgs].text, 200, 13+h, 624, "center")
             love.graphics.draw(ui.lines, 988, 7)
         else
-            love.graphics.setColor(30,30,30, 200)
+            love.graphics.setColor(0,0,0, 175)
             love.graphics.rectangle("fill", 0,0, 1024,640 )
             love.graphics.setColor(230,230,230, 255)
             for i=0, #msgs-1 do
@@ -31,47 +31,45 @@ function drawMsgs()
 end
 
 function drawCountryInfo(id)
-    if id == selected then
-        local name  = countries[id].name
-        local owner = ""
-        for n=1, #players do
-            local r = indexOfValue(players[n].regions, id)
-            if r ~= 0 then
-                owner = players[n].name
-            end
+    local name  = countries[id].name
+    local owner = ""
+    for n=1, #players do
+        local r = indexOfValue(players[n].regions, id)
+        if r ~= 0 then
+            owner = players[n].name
         end
-        
-        local namelength = fonts.bold.normal:getWidth(name)
-        local x = countries[id].center.x
-        local y = countries[id].center.y
-        local nameheight = fonts.bold.normal:getHeight(name)
-        local bottom = 0
-        local ownerheight = fonts.normal.normal:getHeight(owner)
-        local ownerlength = fonts.normal.normal:getWidth(owner)
-        local roof = math.ceil
-        local lines = roof(namelength/224)+roof(ownerlength/196)+2
-        
-        love.graphics.setColorMode("replace")
-        love.graphics.draw(ui.bubbletop, x-122, y+15)
-        for i=1, lines do
-            love.graphics.draw(ui.bubblebg, x-122, y+31+13*(i-1))
-            bottom = y+31+13*(i)
-        end
-        love.graphics.draw(ui.bubblebottom, x-122, bottom)
-        
-        
-        love.graphics.setFont(fonts.bold.normal)
-        love.graphics.printf(name, x-114, y+31+nameheight/2, 224, "center")
-        
-        love.graphics.setFont(fonts.normal.normal)
-        love.graphics.printf(owner, x-90, y+36+nameheight/2+ownerheight, 190, "left")
-        love.graphics.printf(countries[id].troops, x-90,y+41+nameheight/2+ownerheight*2, 190, "left")
-        love.graphics.draw(crown,x-106, y+42+nameheight/2)
-        love.graphics.draw(troop, x-106, y+41+nameheight+ownerheight*0.85)
-        
-        
-        love.graphics.setColorMode("modulate")
     end
+    
+    local namelength = fonts.bold.normal:getWidth(name)
+    local x = countries[id].center.x
+    local y = countries[id].center.y
+    local nameheight = fonts.bold.normal:getHeight(name)
+    local bottom = 0
+    local ownerheight = fonts.normal.normal:getHeight(owner)
+    local ownerlength = fonts.normal.normal:getWidth(owner)
+    local roof = math.ceil
+    local lines = roof(namelength/224)+roof(ownerlength/196)+2
+    
+    love.graphics.setColorMode("replace")
+    love.graphics.draw(ui.bubbletop, x-122, y+15)
+    for i=1, lines do
+        love.graphics.draw(ui.bubblebg, x-122, y+31+13*(i-1))
+        bottom = y+31+13*(i)
+    end
+    love.graphics.draw(ui.bubblebottom, x-122, bottom)
+    
+    
+    love.graphics.setFont(fonts.bold.normal)
+    love.graphics.printf(name, x-114, y+31+nameheight/2, 224, "center")
+    
+    love.graphics.setFont(fonts.normal.normal)
+    love.graphics.printf(owner, x-90, y+36+nameheight/2+ownerheight, 190, "left")
+    love.graphics.printf(countries[id].troops, x-90,y+41+nameheight/2+ownerheight*2, 190, "left")
+    love.graphics.draw(crown,x-106, y+42+nameheight/2)
+    love.graphics.draw(troop, x-106, y+41+nameheight+ownerheight*0.85)
+    
+    
+    love.graphics.setColorMode("modulate")
 end
 
 function round(num, idp)
