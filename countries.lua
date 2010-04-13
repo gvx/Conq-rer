@@ -4,308 +4,352 @@ countries = {
         center = {x=141 , y=80 },
         neighbours = {2,3,32},
         image,
-        draw = {x=118,y=50}
+        draw = {x=118,y=50},
+        troops = 0
     },
     {
         name = "Northwest Territory",
         center = {x=203 , y=80 },
         neighbours = {1,3,4,6},
         image,
-        draw = {x=172,y=39}
+        draw = {x=172,y=39},
+        troops = 0
     },
     {
         name = "Alberta",
         center = {x=205 , y=124 },
         neighbours = {1,2,4,7},
         image,
-        draw = {x=179,y=90}
+        draw = {x=179,y=90},
+        troops = 0
     },
     {
         name = "Ontario",
         center = {x=252 , y=130 },
         neighbours = {2,3,7,8,5,6},
         image,
-        draw = {x=239,y=92}
+        draw = {x=239,y=92},
+        troops = 0
     },
     {
         name = "Quebec",
         center = {x= 300, y=132 },
         neighbours = {4,8,6},
         image,
-        draw = {x=286,y=89}
+        draw = {x=286,y=89},
+        troops = 0
     },
     {
         name = "Greenland",
         center = {x=350 , y=60 },
         neighbours = {2,4,5,15},
         image,
-        draw = {x=306,y=12}
+        draw = {x=306,y=12},
+        troops = 0
     },
     {
         name = "Western United States",
         center = {x=205 , y=180 },
         neighbours = {3,4,8,9},
         image,
-        draw = {x=183,y=141}
+        draw = {x=183,y=141},
+        troops = 0
     },
     {
         name = "Eastern United States",
         center = {x=255 , y=195 },
         neighbours = {9,7,4,5},
         image,
-        draw = {x=227,y=141}
+        draw = {x=227,y=141},
+        troops = 0
     },
     {
         name = "Central America",
         center = {x=207 , y=225 },
         neighbours = {7,8,10},
         image,
-        draw = {x=190,y=200}
+        draw = {x=190,y=200},
+        troops = 0
     },
     {
         name = "Venezuela",
         center = {x=267 , y=286 },
         neighbours = {9,11,12},
         image,
-        draw = {x=244,y=260}
+        draw = {x=244,y=260},
+        troops = 0
     },
     {
         name = "Peru",
         center = {x=242 , y=323 },
         neighbours = {10,12,13},
         image,
-        draw = {x=239,y=294}
+        draw = {x=239,y=294},
+        troops = 0
     },
     {
         name = "Brazil",
         center = {x=322 , y=336 },
         neighbours = {10,11,13,14,23},
         image,
-        draw = {x=257,y=284}
+        draw = {x=257,y=284},
+        troops = 0
     },
     {
         name = "Bolivia",
         center = {x=285 , y=355 },
         neighbours = {11,12,14},
         image,
-        draw = {x=252,y=325}
+        draw = {x=252,y=325},
+        troops = 0
     },
     {
         name = "Argentina",
         center = {x=280 , y=415 },
         neighbours = {13,12},
         image,
-        draw = {x=267,y=352}
+        draw = {x=267,y=352},
+        troops = 0
     },
     {
         name = "Iceland",
         center = {x=460 , y=107 },
         neighbours = {6,16,17},
         image,
-        draw = {x=446,y=86}
+        draw = {x=446,y=86},
+        troops = 0
     },
     {
         name = "Scandinavia",
         center = {x=512 , y=108 },
         neighbours = {15,17,18,19},
         image,
-        draw = {x=495,y=62}
+        draw = {x=495,y=62},
+        troops = 0
     },
     {
         name = "Great Britain",
         center = {x=453 , y=173 },
         neighbours = {15,16,18,20},
         image,
-        draw = {x=427,y=122}
+        draw = {x=427,y=122},
+        troops = 0
     },
     {
         name = "Northern Europe",
         center = {x=510 , y=175 },
         neighbours = {16,17,19,20,21},
         image,
-        draw = {x=486,y=131}
+        draw = {x=486,y=131},
+        troops = 0
     },
     {
         name = "Ukraine",
         center = {x=580 , y=140 },
         neighbours = {29,34,38,16,18,21},
         image,
-        draw = {x=540,y=62}
+        draw = {x=540,y=62},
+        troops = 0
     },
     {
         name = "France",
         center = {x=470 , y=210 },
         neighbours = {17,18,21,22},
         image,
-        draw = {x=454,y=179}
+        draw = {x=454,y=179},
+        troops = 0
     },
     {
         name = "Southern Europe",
         center = {x=520 , y=215 },
         neighbours = {18,19,20,38,23,24},
         image,
-        draw = {x=492,y=179}
+        draw = {x=492,y=179},
+        troops = 0
     },
     {
         name = "Spain",
         center = {x=455 , y=245 },
         neighbours = {20,23},
         image,
-        draw = {x=440,y=215}
+        draw = {x=440,y=215},
+        troops = 0
     },
     {
         name = "North Africa",
         center = {x=477 , y=320 },
         neighbours = {12,21,22,24,25,26},
         image,
-        draw = {x=449,y=249}
+        draw = {x=449,y=249},
+        troops = 0
     },
     {
         name = "Egypt",
         center = {x=540 , y=292 },
         neighbours = {23,25,38},
         image,
-        draw = {x=513,y=265}
+        draw = {x=513,y=265},
+        troops = 0
     },
     {
         name = "East Africa",
         center = {x=575 , y=340 },
         neighbours = {23,24,26,27,28},
         image,
-        draw = {x=550,y=301}
+        draw = {x=550,y=301},
+        troops = 0
     },
     {
         name = "Congo",
         center = {x=545 , y=380 },
         neighbours = {23,25,27},
         image,
-        draw = {x=514,y=335}
+        draw = {x=514,y=335},
+        troops = 0
     },
     {
         name = "South Africa",
         center = {x= 545, y=445 },
         neighbours = {25,26,28},
         image,
-        draw = {x=522,y=384}
+        draw = {x=522,y=384},
+        troops = 0
     },
     {
         name = "Madagascar",
         center = {x=613 , y=451 },
         neighbours = {25,27},
         image,
-        draw = {x=605,y=407}
+        draw = {x=605,y=407},
+        troops = 0
     },
     {
         name = "Ural",
         center = {x=650 , y=127 },
         neighbours = {19,34,35,30},
         image,
-        draw = {x=637,y=43}
+        draw = {x=637,y=43},
+        troops = 0
     },
     {
         name = "Siberia",
         center = {x=688 , y=66 },
         neighbours = {29,31,33,35,36},
         image,
-        draw = {x=652,y=21}
+        draw = {x=652,y=21},
+        troops = 0
     },
     {
         name = "Yakutsk",
         center = {x=745 , y=75 },
         neighbours = {30,32,33},
         image,
-        draw = {x=722,y=33}
+        draw = {x=722,y=33},
+        troops = 0
     },
     {
         name = "Kamchatka",
         center = {x=800 , y=83 },
         neighbours = {31,33,36,1, 37},
         image,
-        draw = {x=762,y=42}
+        draw = {x=762,y=42},
+        troops = 0
     },
     {
         name = "Irkutsk",
         center = {x=735 , y=144 },
         neighbours = {30,31,32,36},
         image,
-        draw = {x=710,y=88}
+        draw = {x=710,y=88},
+        troops = 0
     },
     {
         name = "Afghanistan",
         center = {x=640 , y=200 },
         neighbours = {19,29,35,38,39},
         image,
-        draw = {x=607,y=142}
+        draw = {x=607,y=142},
+        troops = 0
     },
     {
         name = "China",
         center = {x=727 , y=233 },
         neighbours = {29,30,33,34,36,39,40},
         image,
-        draw = {x=676,y=157}
+        draw = {x=676,y=157},
+        troops = 0
     },
     {
         name = "Mongolia",
         center = {x=745 , y=185 },
         neighbours = {37,30,32,33,35},
         image,
-        draw = {x=717,y=132}
+        draw = {x=717,y=132},
+        troops = 0
     },
     {
         name = "Japan",
         center = {x=822 , y=190 },
         neighbours = {32,36},
         image,
-        draw = {x=809,y=132}
+        draw = {x=809,y=132},
+        troops = 0
     },
     {
         name = "Middle East",
         center = {x=594 , y=262 },
         neighbours = {19,21,24,25,34,39},
         image,
-        draw = {x=548,y=218}
+        draw = {x=548,y=218},
+        troops = 0
     },
     {
         name = "India",
         center = {x=684 , y=270 },
         neighbours = {34,35,38,40},
         image,
-        draw = {x=650,y=210}
+        draw = {x=650,y=210},
+        troops = 0
     },
     {
         name = "Siam",
         center = {x=744 , y=291 },
         neighbours = {35,39,41},
         image,
-        draw = {x=724,y=250}
+        draw = {x=724,y=250},
+        troops = 0
     },
     {
         name = "Indonesia",
         center = {x=769 , y=371 },
         neighbours = {40,42,43},
         image,
-        draw = {x=733,y=332}
+        draw = {x=733,y=332},
+        troops = 0
     },
     {
         name = "New Guinea",
         center = {x=831 , y=353 },
         neighbours = {41,43,44},
         image,
-        draw = {x=809,y=323}
+        draw = {x=809,y=323},
+        troops = 0
     },
     {
         name = "Western Australia",
         center = {x=790 , y= 445 },
         neighbours = {41,42,44},
         image,
-        draw = {x=775,y=388}
+        draw = {x=775,y=388},
+        troops = 0
     },
     {
         name = "Eastern Australia",
         center = {x=840 , y=422 },
         neighbours = {42,43},
         image,
-        draw = {x=822,y=376}
+        draw = {x=822,y=376},
+        troops = 0
     }
 }
 
