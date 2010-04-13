@@ -47,10 +47,13 @@ function drawCountryInfo(id)
         local nameheight = fonts.bold.normal:getHeight(name)
         local bottom = 0
         local ownerheight = fonts.normal.normal:getHeight(owner)
+        local ownerlength = fonts.normal.normal:getWidth(owner)
+        local roof = math.ceil
+        local lines = roof(namelength/224)+roof(ownerlength/196)+2
         
         love.graphics.setColorMode("replace")
         love.graphics.draw(ui.bubbletop, x-122, y+15)
-        for i=1, round(namelength/224+ownerheight/13,0)+1 do
+        for i=1, lines do
             love.graphics.draw(ui.bubblebg, x-122, y+31+13*(i-1))
             bottom = y+31+13*(i)
         end
@@ -61,7 +64,10 @@ function drawCountryInfo(id)
         love.graphics.printf(name, x-114, y+31+nameheight/2, 224, "center")
         
         love.graphics.setFont(fonts.normal.normal)
-        love.graphics.printf(owner, x-114, y+36+nameheight/2+ownerheight, 224, "left")
+        love.graphics.printf(owner, x-90, y+36+nameheight/2+ownerheight, 190, "left")
+        love.graphics.printf(countries[id].troops, x-90,y+41+nameheight/2+ownerheight*2, 190, "left")
+        love.graphics.draw(crown,x-106, y+42+nameheight/2)
+        love.graphics.draw(troop, x-106, y+41+nameheight+ownerheight*0.85)
         
         
         love.graphics.setColorMode("modulate")

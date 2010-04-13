@@ -7,6 +7,8 @@ function love.load()
     map = love.graphics.newImage("gfx/map.png")
     compass = love.graphics.newImage("gfx/compass.png")
     arrows = love.graphics.newImage("gfx/arrows.png")
+    crown = love.graphics.newImage("gfx/UI/crown.png")
+    troop = love.graphics.newImage("gfx/UI/troop.png")
     
     ui = {
         lines = love.graphics.newImage("gfx/UI/lines.png"),
@@ -41,7 +43,7 @@ function love.load()
     require("countries.lua")
     require("players.lua")
     require("utils.lua")
-    divide(players)
+    divide()
     addMsg("Your troops in Afghanistan have been defeated by Stein the Spineless")
 end
 
