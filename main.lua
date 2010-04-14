@@ -101,7 +101,7 @@ function love.draw()
                         else
                             force = 3
                         end
-                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 16,16)
+                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
                     end
                 end
             end
@@ -113,20 +113,9 @@ function love.draw()
     
     drawMsgs()
     
-    love.graphics.setColorMode("modulate")
-    love.graphics.setColor(50,50,50)
-    love.graphics.print("Mouse X/Y: "..love.mouse.getX().."/"..love.mouse.getY(), 10, 50)
-    if hovering ~= "nothing" then
-        love.graphics.print("Hovering over "..countries[hovering].name.." ("..hovering..")", 10, 65)
-    else
-        love.graphics.print("Hovering over nothing", 10, 65)
+    if debugging then
+        drawDebugInformation()
     end
-    if selected == 0 then
-        love.graphics.print("Nothing is selected", 10, 80)
-    else
-        love.graphics.print(countries[selected].name.." is selected", 10, 80)
-    end
-    love.graphics.print("FPS: "..love.timer.getFPS(), 10, 95)
     
     
 end
@@ -149,6 +138,8 @@ function love.keypressed(key, uni)
             end
             addMsg(players[i].name.."'s regions: "..regions)
         end
+    elseif key == "tab" then
+        debugging = not debugging
     end
 end
 

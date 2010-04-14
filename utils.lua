@@ -89,6 +89,23 @@ function drawNeighbours(id)
     end
 end
 
+function drawDebugInformation()
+    love.graphics.setColorMode("modulate")
+    love.graphics.setColor(50,50,50)
+    love.graphics.print("Mouse X/Y: "..love.mouse.getX().."/"..love.mouse.getY(), 10, 50)
+    if hovering ~= "nothing" then
+        love.graphics.print("Hovering over "..countries[hovering].name.." ("..hovering..")", 10, 65)
+    else
+        love.graphics.print("Hovering over nothing", 10, 65)
+    end
+    if selected == 0 then
+        love.graphics.print("Nothing is selected", 10, 80)
+    else
+        love.graphics.print(countries[selected].name.." is selected", 10, 80)
+    end
+    love.graphics.print("FPS: "..love.timer.getFPS(), 10, 95)
+end
+
 function getSelectedRegion(x,y)
     for i=1, #countries do
         if shapes[i]:testPoint(x, y) then
