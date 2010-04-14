@@ -13,6 +13,7 @@ function drawMsgs()
             love.graphics.print(msgs[#msgs].when, 20, 13+h)
             love.graphics.printf(msgs[#msgs].text, 200, 13+h, 624, "center")
             love.graphics.draw(ui.lines, 988, 7)
+            --love.graphics.draw(ui.speech, 966, 7)
         else
             love.graphics.setColor(0,0,0, 175)
             love.graphics.rectangle("fill", 0,0, 1024,640 )
@@ -65,11 +66,36 @@ function drawCountryInfo(id)
     love.graphics.setFont(fonts.normal.normal)
     love.graphics.printf(owner, x-90, y+36+nameheight/2+ownerheight, 190, "left")
     love.graphics.printf(countries[id].troops, x-90,y+41+nameheight/2+ownerheight*2, 190, "left")
-    love.graphics.draw(crown,x-106, y+42+nameheight/2)
-    love.graphics.draw(troop, x-106, y+41+nameheight+ownerheight*0.85)
+    love.graphics.draw(ui.crown,x-106, y+42+nameheight/2)
+    love.graphics.draw(ui.troop, x-106, y+41+nameheight+ownerheight*0.85)
     
     
     love.graphics.setColorMode("modulate")
+end
+
+function drawSelected(id)
+    if id == 0 then return end
+    love.graphics.setColorMode("modulate")
+    love.graphics.setColor(50,50,50, 100)
+    love.graphics.draw(countries[id].image, countries[id].draw.x, countries[id].draw.y)
+    love.graphics.setColor(230,230,230, 100)
+end
+
+function drawNeighbours(id)
+    if id == 0 then return end
+    for i=1, #countries[id].neighbours do
+        local neighbour = countries[countries[id].neighbours[i]]
+        love.graphics.draw(neighbour.image, neighbour.draw.x, neighbour.draw.y)
+    end
+end
+
+function getSelectedRegion(x,y)
+    for i=1, #countries do
+        if shapes[i]:testPoint(x, y) then
+            return i
+        end
+    end
+    return 0
 end
 
 function round(num, idp)

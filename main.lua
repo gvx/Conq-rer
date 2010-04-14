@@ -7,14 +7,19 @@ function love.load()
     map = love.graphics.newImage("gfx/map.png")
     compass = love.graphics.newImage("gfx/compass.png")
     arrows = love.graphics.newImage("gfx/arrows.png")
-    crown = love.graphics.newImage("gfx/UI/crown.png")
-    troop = love.graphics.newImage("gfx/UI/troop.png")
+    troops = {}
+    troops[1] = love.graphics.newImage("gfx/hat.png")
+    troops[2] = love.graphics.newImage("gfx/cavalry.png")
+    troops[3] = love.graphics.newImage("gfx/cannon.png")
     
     ui = {
         lines = love.graphics.newImage("gfx/UI/lines.png"),
         bubbletop = love.graphics.newImage("gfx/UI/bubbletop.png"),
         bubblebg = love.graphics.newImage("gfx/UI/bubblebg.png"),
         bubblebottom = love.graphics.newImage("gfx/UI/bubblebottom.png"),
+        speech = love.graphics.newImage("gfx/UI/speechbubble.png"),
+        crown = love.graphics.newImage("gfx/UI/crown.png"),
+        troop = love.graphics.newImage("gfx/UI/troop.png")
     }
     
     fonts = {
@@ -77,22 +82,29 @@ function love.draw()
     love.graphics.draw(compass, 651,372)
     love.graphics.draw(arrows, 0,0)
     
-    if selected ~= 0 then
-        love.graphics.setColorMode("modulate")
-        love.graphics.setColor(50,50,50, 100)
-        love.graphics.draw(countries[selected].image, countries[selected].draw.x, countries[selected].draw.y)
-        love.graphics.setColor(230,230,230, 100)
-        for i=1, #countries[selected].neighbours do
-            local neighbour = countries[countries[selected].neighbours[i]]
-            love.graphics.draw(neighbour.image, neighbour.draw.x, neighbour.draw.y)
-        end
-    end
+    drawSelected(selected)
+    drawNeighbours(selected)
     
     love.graphics.setColor(30,30,30)
+    love.graphics.setColorMode("modulate")
     for i,v in ipairs(countries) do
         if v.troops > 0 then
-            love.graphics.print(v.troops, v.center.x, v.center.y)
-            
+            for n=1,#players do
+                for k,m in ipairs(players[n].regions) do
+                    if m == i then
+                        love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b)
+                        local force = 1
+                        if v.troops < 5 then
+                            force = 1
+                        elseif v.troops >= 5 and v.troops < 10 then
+                            force = 2
+                        else
+                            force = 3
+                        end
+                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 16,16)
+                    end
+                end
+            end
         end
     end
     if love.mouse.isDown("r") and hovering ~= "nothing" then
@@ -145,12 +157,6 @@ function love.mousepressed(x,y, button)
         if x > 988 and x < 1004 and y > 9 and y < 22 then
             msgview = not msgview
         end
-        selected = 0
-        for i=1, #countries do
-            if shapes[i]:testPoint(x, y) then
-                selected = i
-            end
-        end
-        
+        selected = getSelectedRegion(x,y)
     end
 end

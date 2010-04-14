@@ -2,12 +2,14 @@ players = {
     {
         name = "Stein the Spineless",
         regions = {},
-        troops = 40
+        troops = 40,
+        color = {r=236, g=87,b=99}
     },
     {
         name = "Fafnir the Flatulent",
         regions = {},
-        troops = 40
+        troops = 40,
+        color = {r=87,g=198,b=236}
     }
 }
 
@@ -16,6 +18,7 @@ function divide()
     local t = {}
     for i=1, #countries do
         table.insert(t,i)
+        countries[i].troops = randint(1,10)
     end
     
     local n = 1
