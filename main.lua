@@ -42,6 +42,7 @@ function love.load()
     hovering = "nothing"
     selected = 0
     msgview = false
+    msgtimer = 0
     
     
     msgs = {}
@@ -53,6 +54,10 @@ function love.load()
 end
 
 function love.update(dt)
+
+    if msgtimer > 0 then
+        msgtimer = msgtimer -dt
+    end
     
     local mousex, mousey = love.mouse.getPosition()
     hovering = "nothing"
@@ -92,7 +97,7 @@ function love.draw()
             for n=1,#players do
                 for k,m in ipairs(players[n].regions) do
                     if m == i then
-                        love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b)
+                        love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b, 200)
                         local force = 1
                         if v.troops < 5 then
                             force = 1
@@ -101,6 +106,9 @@ function love.draw()
                         else
                             force = 3
                         end
+                        love.graphics.setColorMode("replace")
+                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
+                        love.graphics.setColorMode("modulate")
                         love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
                     end
                 end
