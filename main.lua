@@ -7,10 +7,11 @@ function love.load()
     map = love.graphics.newImage("gfx/map.png")
     compass = love.graphics.newImage("gfx/compass.png")
     arrows = love.graphics.newImage("gfx/arrows.png")
-    troops = {}
-    troops[1] = love.graphics.newImage("gfx/hat.png")
-    troops[2] = love.graphics.newImage("gfx/cavalry.png")
-    troops[3] = love.graphics.newImage("gfx/cannon.png")
+    troops = {
+        love.graphics.newImage("gfx/hat.png"),
+        love.graphics.newImage("gfx/cavalry.png"),
+        love.graphics.newImage("gfx/cannon.png"),
+    }
     
     ui = {
         lines = love.graphics.newImage("gfx/UI/lines.png"),
