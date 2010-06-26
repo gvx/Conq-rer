@@ -26,10 +26,6 @@ function divide()
         local i = randint(#t)
         table.insert(players[n].regions, t[i])
         table.remove(t,i)
-        if n < #players then
-            n = n+1
-        else
-            n=1
-        end
+        n = n % #players + 1
     end
 end

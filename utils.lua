@@ -9,20 +9,21 @@ function drawMsgs()
         if love.mouse.getY() <= 30 then
             msgtimer = 1
         end
-        if (not msgview and love.mouse.getY() <=30) or (not msgview and msgtimer > 0) then
-            local msgy = 30
-            if msgtimer> 0 and msgtimer < 1 then
-                msgy = 30*msgtimer
+        if not msgview then
+            if love.mouse.getY() <=30 or msgtimer > 0 then
+                local msgy = 30
+                if msgtimer> 0 and msgtimer < 1 then
+                    msgy = 30*msgtimer
+                end
+                love.graphics.setColor(0,0,0, 175)
+                love.graphics.rectangle("fill", 0,0, 1024,msgy )
+                local h = fonts.normal.normal:getHeight(msgs[#msgs].text)/2
+                love.graphics.setColor(230,230,230, 255)
+                love.graphics.print(msgs[#msgs].when, 20, msgy-h)
+                love.graphics.printf(msgs[#msgs].text, 200, msgy-h, 624, "center")
+                love.graphics.draw(ui.lines, 988, msgy-23)
             end
-            love.graphics.setColor(0,0,0, 175)
-            love.graphics.rectangle("fill", 0,0, 1024,msgy )
-            local h = fonts.normal.normal:getHeight(msgs[#msgs].text)/2
-            love.graphics.setColor(230,230,230, 255)
-            love.graphics.print(msgs[#msgs].when, 20, msgy-h)
-            love.graphics.printf(msgs[#msgs].text, 200, msgy-h, 624, "center")
-            love.graphics.draw(ui.lines, 988, msgy-23)
-            --love.graphics.draw(ui.speech, 966, 7)
-        elseif msgview then
+        else
             love.graphics.setColor(0,0,0, 175)
             love.graphics.rectangle("fill", 0,0, 1024,640 )
             love.graphics.setColor(230,230,230, 255)
