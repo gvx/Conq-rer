@@ -135,7 +135,7 @@ function love.keypressed(key, uni)
     elseif key == "f11" then
         local _success = love.graphics.toggleFullscreen()
         if not _success then
-            print("Couldn't toggle fullscreen. Sorry!")
+            addMsg("Couldn't toggle fullscreen. Sorry!")
         end
     elseif key == "n" then
         addMsg("This is another message. It's quite formidable, really.")
