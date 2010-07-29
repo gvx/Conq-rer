@@ -33,3 +33,27 @@ end
 function startTurn(n)
 	players[n].troops = math.max(math.floor(#players[n].regions / 3), 3)
 end
+
+local function lt(a, b)
+	return a > b
+end
+function throwDice(troopsAttacker, troopsDefender)
+	local diceAttacker = {}
+	for i=1, math.min(troopsAttacker, 3) do
+		diceAttacker[i] = math.random(6)
+	end
+	table.sort(diceAttacker, lt)
+	local diceDefender = {}
+	for i=1, math.min(troopsDefender, 2) do
+		diceDefender[i] = math.random(6)
+	end
+	table.sort(diceDefender, lt)
+	for i=1, math.min(#diceAttacker, #diceDefender) do
+		if diceAttacker[i] > diceDefender[i] then
+			troopsDefender = troopsDefender - 1
+		else
+			troopsAttacker = troopsAttacker - 1
+		end
+	end
+	return troopsAttacker, troopsDefender, diceAttacker, diceDefender
+end
