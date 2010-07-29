@@ -67,12 +67,14 @@ function love.update(dt)
             for i=1, 14 do
                 if shapes[i]:testPoint(mousex, mousey) then
                     hovering = i
+					break
                 end
             end
         elseif mousex < 897 then
             for i=15, #polygons do
                 if shapes[i]:testPoint(mousex, mousey) then
                     hovering = i
+					break
                 end
             end
         end
