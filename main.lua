@@ -96,7 +96,8 @@ function love.draw()
     for n=1,#players do
         for k,m in ipairs(players[n].regions) do
             local v = countries[m]
-            if v.troops > 0 then
+            local x = v.troops
+            if x > 0 then
                 love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b, 200)
                 local force = troops[x >= 10 and 3 or x >= 5 and 2 or 1]
                 love.graphics.setColorMode("replace")
