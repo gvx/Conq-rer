@@ -29,3 +29,7 @@ function divide()
         n = n % #players + 1
     end
 end
+
+function startTurn(n)
+	players[n].troops = math.max(math.floor(#players[n].regions / 3), 3)
+end
