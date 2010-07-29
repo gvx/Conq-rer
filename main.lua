@@ -93,26 +93,23 @@ function love.draw()
     
     love.graphics.setColor(30,30,30)
     love.graphics.setColorMode("modulate")
-    for i,v in ipairs(countries) do
-        if v.troops > 0 then
-            for n=1,#players do
-                for k,m in ipairs(players[n].regions) do
-                    if m == i then
-                        love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b, 200)
-                        local force = 1
-                        if v.troops < 5 then
-                            force = 1
-                        elseif v.troops >= 5 and v.troops < 10 then
-                            force = 2
-                        else
-                            force = 3
-                        end
-                        love.graphics.setColorMode("replace")
-                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
-                        love.graphics.setColorMode("modulate")
-                        love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
-                    end
+    for n=1,#players do
+        for k,m in ipairs(players[n].regions) do
+            local v = countries[m]
+            if v.troops > 0 then
+                love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b, 200)
+                local force = 1
+                if v.troops < 5 then
+                    force = 1
+                elseif v.troops >= 5 and v.troops < 10 then
+                    force = 2
+                else
+                    force = 3
                 end
+                love.graphics.setColorMode("replace")
+                love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
+                love.graphics.setColorMode("modulate")
+                love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
             end
         end
     end
