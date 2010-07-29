@@ -98,18 +98,11 @@ function love.draw()
             local v = countries[m]
             if v.troops > 0 then
                 love.graphics.setColor(players[n].color.r,players[n].color.g,players[n].color.b, 200)
-                local force = 1
-                if v.troops < 5 then
-                    force = 1
-                elseif v.troops >= 5 and v.troops < 10 then
-                    force = 2
-                else
-                    force = 3
-                end
+                local force = troops[x >= 10 and 3 or x >= 5 and 2 or 1]
                 love.graphics.setColorMode("replace")
-                love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
+                love.graphics.draw(force, v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
                 love.graphics.setColorMode("modulate")
-                love.graphics.draw(troops[force], v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
+                love.graphics.draw(force, v.center.x+8, v.center.y-8, 0, 1, 1, 13,13)
             end
         end
     end
