@@ -402,7 +402,16 @@ polygons = {
 shapes = {}
 local body = love.physics.newBody(world, 0,0,0,0)
 
+local continentBorders = {[10]=true, [15]=true, [22]=true, [28]=true, [41]=true}
+local continentI = 1
+continents = {}
 for i=1, #polygons do
     shapes[i] = love.physics.newPolygonShape(body, unpack(polygons[i]))
     countries[i].image = love.graphics.newImage("gfx/countries/"..i..".png")
+	if continentBorders[i] then
+		continentI = continentI + 1
+	end
+	continents[i] = continentI
 end
+
+continentBonusTroops = {5, 2, 5, 3, 7, 2}
