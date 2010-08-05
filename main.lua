@@ -44,7 +44,8 @@ function love.load()
     selected = 0
     msgview = false
     msgtimer = 0
-    
+    current_player = 1
+    state = 'attack' -- 'place', 'attack' or 'move'
     
     msgs = {}
     require("countries.lua")
@@ -67,14 +68,14 @@ function love.update(dt)
             for i=1, 14 do
                 if shapes[i]:testPoint(mousex, mousey) then
                     hovering = i
-					break
+                    break
                 end
             end
         elseif mousex < 897 then
             for i=15, #polygons do
                 if shapes[i]:testPoint(mousex, mousey) then
                     hovering = i
-					break
+                    break
                 end
             end
         end
@@ -145,11 +146,40 @@ function love.keypressed(key, uni)
     end
 end
 
+function areNeighbours(index1, index2)
+    local c = countries[index1].neighbours
+    for i=1,#c do
+        if c[i] == index2 then
+            return true
+        end
+    end
+end
+
 function love.mousepressed(x,y, button)
     if button == "l" then
         if x > 988 and x < 1004 and y > 9 and y < 22 then
             msgview = not msgview
         end
-        selected = getSelectedRegion(x,y)
+        local sel_new = getSelectedRegion(x,y)
+        if sel_new > 0 and selected > 0 and countries[selected].owner == current_player and areNeighbours(selected, sel_new) then
+            if state == 'attack' then
+                if countries[sel_new].owner ~= current_player then
+                    --attack!
+                    throwDice(countries[selected].troops, countries[sel_new].troops) -- change this to letting the players choose
+                    -- also make sure selected country has more than 1 unit
+                end
+            elseif state == 'move' then
+                if countries[sel_new].owner == current_player then
+                    -- move some troops
+                    if countries[selected].troops > 1 then
+                        countries[selected].troops = countries[selected].troops - 1
+                        countries[sel_new].troops = countries[sel_new].troops + 1
+                        -- let the player choose
+                    end
+                end
+            end
+        else
+            selected = sel_new
+        end
     end
 end
