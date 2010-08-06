@@ -45,7 +45,7 @@ function love.load()
     msgview = false
     msgtimer = 0
     current_player = 1
-    state = 'attack' -- 'place', 'attack' or 'move'
+    state = 'place' -- 'place', 'attack' or 'move'
     
     msgs = {}
     require("countries.lua")
@@ -120,7 +120,18 @@ function love.draw()
         drawDebugInformation()
     end
     
-    
+	love.graphics.setColor(30,30,30)
+	love.graphics.setFont(fonts.bold.normal)
+    love.graphics.print("It's "..players[current_player].name.."'s turn", 10, 610)
+	local text
+	if state == 'place' then
+		text = players[current_player].troops..' units left to place.'
+	elseif state == 'attack' then
+		text = 'Attack the enemy.'
+	elseif state == 'move' then
+		text = 'Move your troops.'
+	end
+    love.graphics.print(text, 10, 630)
 end
 
 function love.keypressed(key, uni)
@@ -181,5 +192,17 @@ function love.mousepressed(x,y, button)
         else
             selected = sel_new
         end
+		if state == 'place' then
+			local c = countries[selected]
+			if c and c.owner == current_player then
+				local p = players[current_player]
+				p.troops = p.troops - 1
+				c.troops = c.troops + 1 -- let the player choose
+				current_player = current_player % #players + 1
+				if players[current_player].troops < 1 then
+					state = 'attack'
+				end
+			end
+		end
     end
 end
