@@ -17,7 +17,7 @@ function drawMsgs()
                 end
                 love.graphics.setColor(0,0,0, 175)
                 love.graphics.rectangle("fill", 0,0, 1024,msgy )
-                local h = fonts.normal.normal:getHeight(msgs[#msgs].text)/2
+                local h = fonts.normal.normal:getHeight(msgs[#msgs].text)
                 love.graphics.setColor(230,230,230, 255)
                 love.graphics.print(msgs[#msgs].when, 20, msgy-h)
                 love.graphics.printf(msgs[#msgs].text, 200, msgy-h, 624, "center")
@@ -31,8 +31,8 @@ function drawMsgs()
                 local num = #msgs
                 local h = fonts.normal.normal:getHeight(msgs[num-i].text)/2
                 
-                love.graphics.print(msgs[num-i].when, 20, 35+(20+h)*i)
-                love.graphics.printf(msgs[num-i].text, 200, 35+(20+h)*i, 624, "center")
+                love.graphics.print(msgs[num-i].when, 20, 15+(20+h)*i)
+                love.graphics.printf(msgs[num-i].text, 200, 15+(20+h)*i, 624, "center")
                 --love.graphics.line(20,40+(20+h)*i, 1004, 40+(20+h)*i)
             end
             love.graphics.draw(ui.lines, 988, 7)
@@ -70,11 +70,11 @@ function drawCountryInfo(id)
     
     
     love.graphics.setFont(fonts.bold.normal)
-    love.graphics.printf(name, x-114, y+31+nameheight/2, 224, "center")
+    love.graphics.printf(name, x-114, y+23, 224, "center")
     
     love.graphics.setFont(fonts.normal.normal)
-    love.graphics.printf(owner, x-90, y+36+nameheight/2+ownerheight, 190, "left")
-    love.graphics.printf(countries[id].troops, x-90,y+41+nameheight/2+ownerheight*2, 190, "left")
+    love.graphics.printf(owner, x-90, y+28+ownerheight, 190, "left")
+    love.graphics.printf(countries[id].troops, x-90,y+34+ownerheight*2, 190, "left")
     love.graphics.draw(ui.crown,x-106, y+42+nameheight/2)
     love.graphics.draw(ui.troop, x-106, y+41+nameheight+ownerheight*0.85)
     
