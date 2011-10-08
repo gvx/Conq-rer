@@ -198,8 +198,10 @@ function love.mousepressed(x,y, button)
 						countries[sel_new].owner = current_player
 						countries[sel_new].troops = att
 						countries[selected].troops = countries[selected].troops - using
+						using_troops = 0
 					else
 						countries[selected].troops = countries[selected].troops - using + att
+						using_troops = att > 1 and att or 0
 						countries[sel_new].troops = def
 					end
                 end
