@@ -111,7 +111,7 @@ function love.draw()
             end
         end
     end
-    if love.mouse.isDown("r") and hovering ~= "nothing" then
+    if --[[love.mouse.isDown("r") and]] hovering ~= "nothing" then
         drawCountryInfo(hovering)
     end
     
@@ -180,10 +180,28 @@ function love.mousepressed(x,y, button)
         local sel_new = getSelectedRegion(x,y)
         if sel_new > 0 and selected > 0 and countries[selected].owner == current_player and areNeighbours(selected, sel_new) then
             if state == 'attack' then
-                if countries[sel_new].owner ~= current_player then
+                if countries[sel_new].owner ~= current_player and countries[selected].troops > 1 then
+					local using = using_troops > 0 and using_troops or 1
+					if using >= countries[selected].troops then
+						using = countries[selected].troops - 1
+					end
                     --attack!
-                    throwDice(countries[selected].troops, countries[sel_new].troops) -- change this to letting the players choose
-                    -- also make sure selected country has more than 1 unit
+                    local att, def = throwDice(using, countries[sel_new].troops) -- change this to letting the players choose
+					if def == 0 then
+						for i,country in ipairs(players[countries[sel_new].owner].regions) do
+							if country == sel_new then
+								table.remove(players[countries[sel_new].owner].regions, i)
+								break
+							end
+						end
+						table.insert(players[current_player].regions, sel_new)
+						countries[sel_new].owner = current_player
+						countries[sel_new].troops = att
+						countries[selected].troops = countries[selected].troops - using
+					else
+						countries[selected].troops = countries[selected].troops - using + att
+						countries[sel_new].troops = def
+					end
                 end
             elseif state == 'move' then
                 if countries[sel_new].owner == current_player then
@@ -209,9 +227,14 @@ function love.mousepressed(x,y, button)
 				end
 				p.troops = p.troops - using
 				c.troops = c.troops + using
+				local prev_player = current_player
 				current_player = current_player % #players + 1
-				if players[current_player].troops < 1 then
-					state = 'attack'
+				while players[current_player].troops < 1 do
+					current_player = current_player % #players + 1
+					if current_player == prev_player then
+						state = 'attack'
+						break
+					end
 				end
 			end
 		end
